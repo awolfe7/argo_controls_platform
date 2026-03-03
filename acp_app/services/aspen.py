@@ -71,7 +71,9 @@ class AspenConn:
         sql_query = f'''
         SELECT NAME, IO_TAGNAME, "IO_VALUE_RECORD&&FLD"
         FROM IOGetHistDef
-        WHERE "IO_VALUE_RECORD&&FLD" LIKE '{tag_list}' AND
+        WHERE ("IO_VALUE_RECORD&&FLD" LIKE '{tag_list}' OR 
+               IO_TAGNAME LIKE '{tag_list}' OR 
+               NAME LIKE '{tag_list}') AND
         NAME LIKE '%{iogethistdef}%'
         '''
 

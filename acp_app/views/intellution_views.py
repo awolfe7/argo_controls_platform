@@ -25,7 +25,7 @@ class IntelSearchForm(FlaskForm):
     column_to_search = SelectField(choices=columns_for_search, default='tag')
 
 
-@bp.route('/intellution/<search_term>', methods=['GET', 'POST'])
+@bp.route('/intellution/<path:search_term>', methods=['GET', 'POST'])
 def intellution_search(search_term):
     # Build query for searching for tag
     intel_col = request.args.get('intel_col', 'tag')

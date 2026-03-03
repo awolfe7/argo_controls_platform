@@ -20,7 +20,7 @@ class SearchForm(FlaskForm):
     submit = SubmitField('Search')
 
 
-@bp.route('/aspen/<search_term>', methods=['GET', 'POST'])
+@bp.route('/aspen/<path:search_term>', methods=['GET', 'POST'])
 def aspen_search(search_term):
     aspen_server = current_app.config.get('ASPEN_SERVER')
     try:
